@@ -1,79 +1,84 @@
 // Variables del juego
-let numberGames = document.getElementById('games')
 const tijera = 0
 const piedra = 1
 const papel = 2
-let score = 0
+var score = 0
+var turnos = 0
 
 // Variables del resultado
 const tie = 0
 const win = 1
 const lost = 2
 
-let isPlaying = false
-
 // Botones para jugar
 const tijeraBtn = document.getElementById('tijera')
 const piedraBtn = document.getElementById('piedra')
 const papelBtn = document.getElementById('papel')
 
-// Mostrar resultados
-const resultText = document.getElementById('resultText')
+const juego = document.getElementById('juego')
+
+
+
+var jugada = ['tijera','piedra','papel']
+var jugadaHTML = [tijeraBtn,piedraBtn,papelBtn]
 
 // Eleccion del usuario
 tijeraBtn.addEventListener('click', () => {
   move(tijera)
-  console.log(tijera)
 })
 
 piedraBtn.addEventListener('click', () => {
   move(piedra)
-  console.log(piedra)
 })
 
 papelBtn.addEventListener('click', () => {
   move(papel)
-  console.log(papel)
 })
 
 // Click en Jugar
 function play() {
   document.getElementById('playBtn').addEventListener('click', function () {
+    score = 0
     document.getElementById('cachipun').classList.remove('hidden')
+    juego.classList.add('hidden')
+    let numberGames = document.getElementById('games').value
+    document.getElementById('turnos').innerHTML = `Te quedan ${numberGames} jugadas`
+    turnos = parseInt(numberGames)
   })
 }
 
 // Movimiento o jugada del usuario
 function move(userOption) {
   // for (var i = 0; i < numberGames; i++) {
-    if (isPlaying) return
-
-    isPlaying = true
     const interval = setInterval(function () {
       const pcOption = calcPcOption()
-    }, 200)
+    }, 1)
 
     setTimeout(function () {
       clearInterval(interval)
 
       const pcOption = calcPcOption()
       const result = calcResult(userOption, pcOption)
-
+      var texto = ''
       switch (result) {
         case tie:
-          alert(`Tu sacaste: ${userOption} y la computadora sacó: ${pcOption}, empataron`)
+          texto = `Tu sacaste <b>${jugada[userOption]}</b> y la computadora sacó <b>${jugada[pcOption]}</b> <br>
+          <p class="mx-auto text-blue-800 font-bold">Empataron</p>`
           break
         case win:
           score = score + 1
-          alert(`Tu sacaste: ${userOption} y la computadora sacó: ${pcOption}, ganaste`)
+          texto = `Tu sacaste <b>${jugada[userOption]}</b> y la computadora sacó <b>${jugada[pcOption]}</b> <br>
+          <p class="mx-auto text-blue-800 font-bold">Ganaste</p>`
           break
         case lost:
           score = score - 1
-          alert(`Tu sacaste: ${userOption} y la computadora sacó: ${pcOption}, perdiste`)
+          texto = `Tu sacaste <b>${jugada[userOption]}</b> y la computadora sacó <b>${jugada[pcOption]}</b> <br>
+          <p class="mx-auto text-blue-800 font-bold">Perdiste</p>`
           break
       }
-      isPlaying = false
-    }, 1000)
+      resultado(jugadaHTML[userOption], jugadaHTML[pcOption], texto)
+      document.getElementById('resultText').innerHTML = score
+    }, 1)
   // }
 }
 
@@ -113,5 +118,23 @@ function calcResult(userOption, pcOption) {
 
   }
 }
+
+function resultado(userPlay, pcPlay, resultadoJugada){
+  document.getElementById('miJugada').innerHTML = outerHTML(userPlay) 
+  document.getElementById('pcJugada').innerHTML = outerHTML(pcPlay)
+   turnos -= 1
+  document.getElementById('turnos').innerHTML = `Te quedan ${turnos} jugadas`
+
+  document.getElementById('resultadoJugada').innerHTML = `<p>${resultadoJugada}</p>`
+
+  if (turnos == 0){
+     juego.classList.remove('hidden')
+     document.getElementById('cachipun').classList.add('hidden')
+  }
+}
+
+function outerHTML(node){
+  return node.outerHTML || new XMLSerializer().serializeToString(node);
+ }
 
 play()
