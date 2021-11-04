@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío - Cachipún contra la máquina</title>
+    <!-- Barlow Condensed Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <style>
+        body{
+            background: #0f0c29;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto text-white">
+        <!-- Header -->
+        <div class="flex mx-auto mt-8 max-w-lg justify-between border border-white rounded-xl p-4">
+            <div class="title flex items-center font-bold text-4xl">
+                <p>CACHIPÚN</p>
+            </div>
+            <div class="score flex flex-col items-center font-bold bg-white p-5 text-blue-800 rounded-xl">
+                <p>PUNTAJE</p>
+                <p class="text-4xl" id="puntaje">0</p>
+            </div>
+        </div>
+        <!-- Juego -->
+        <div class="flex flex-col items-center mx-auto mt-8 max-w-xl">
+            <label class="mx-auto mb-4 text-2xl">¿Cuantas veces quieres jugar?</label>
+            <input type="number" id="games" class="outline-none focus:outline-none text-center w-24 h-12 bg-white font-semibold text-md hover:text-blue focus:text-blue  md:text-basecursor-default flex items-center text-blue-800 outline-none rounded-lg" name="custom-input-number" value="1" min="1">
+            </input>
+            <div id="playBtn" class="border border-white rounded-xl px-3 py-2 text-white font-bold cursor-pointer hover:bg-white hover:text-blue-800 text-center w-24 h-12 mx-auto mt-4">
+                Jugar
+            </div>
+        </div>
+    </div>
+    <div id="cachipun" class="hidden container max-w-lg mt-6 flex flex-col mx-auto bg-white py-5 rounded-xl">
+        <div class="mx-auto flex w-full justify-around pt-5">
+            <div id="tijera" class="border-8 border-yellow-600 bg-blue-800 text-white rounded-full h-32 w-32 text-5xl flex hover:bg-white hover:text-blue-800">
+                <i class="far fa-hand-scissors mx-auto my-auto"></i>
+            </div>
+            <h2 class="hidden">Usuario <span>/</span> PC</h2>
+            <div id="piedra" class="border-8 border-green-600 bg-blue-800 text-white rounded-full h-32 w-32 text-5xl flex hover:bg-white hover:text-blue-800">
+                <i class="far fa-hand-rock mx-auto my-auto"></i>
+            </div>
+            <div id="papel" class="border-8 border-red-600 bg-blue-800 text-white rounded-full h-32 w-32 text-5xl flex hover:bg-white hover:text-blue-800">
+                <i class="far fa-hand-paper mx-auto my-auto"></i>
+            </div>
+        </div>    
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
