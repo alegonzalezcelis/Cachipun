@@ -63,17 +63,20 @@ function move(userOption) {
       switch (result) {
         case tie:
           texto = `Tu sacaste <b>${jugada[userOption]}</b> y la computadora sacó <b>${jugada[pcOption]}</b> <br>
-          <p class="mx-auto text-blue-800 font-bold">Empataron</p>`
+          <p class="mx-auto text-blue-800 font-bold">Es un empate</p>
+          <p class="mx-auto text-blue-800 font-bold">Puntaje: ${score}</p>`
           break
         case win:
           score = score + 1
           texto = `Tu sacaste <b>${jugada[userOption]}</b> y la computadora sacó <b>${jugada[pcOption]}</b> <br>
-          <p class="mx-auto text-blue-800 font-bold">Ganaste</p>`
+          <p class="mx-auto text-green-500 font-bold">Ganaste</p>
+          <p class="mx-auto text-blue-800 font-bold">Puntaje: ${score}</p>`
           break
         case lost:
           score = score - 1
           texto = `Tu sacaste <b>${jugada[userOption]}</b> y la computadora sacó <b>${jugada[pcOption]}</b> <br>
-          <p class="mx-auto text-blue-800 font-bold">Perdiste</p>`
+          <p class="mx-auto text-red-800 font-bold">Perdiste</p>
+          <p class="mx-auto text-blue-800 font-bold">Puntaje: ${score}</p>`
           break
       }
       resultado(jugadaHTML[userOption], jugadaHTML[pcOption], texto)
@@ -129,6 +132,7 @@ function resultado(userPlay, pcPlay, resultadoJugada){
 
   if (turnos == 0){
      juego.classList.remove('hidden')
+     score = 0;
      document.getElementById('cachipun').classList.add('hidden')
   }
 }

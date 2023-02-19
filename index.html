@@ -43,22 +43,25 @@ background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+
             <label class="mx-auto mb-4 text-2xl">¿Cuantas veces quieres jugar?</label>
             <input type="number" id="games" class="outline-none focus:outline-none text-center w-24 h-12 bg-white font-semibold text-md hover:text-blue focus:text-blue  md:text-basecursor-default flex items-center text-blue-800 outline-none rounded-lg" name="custom-input-number" value="1" min="1">
             </input>
-            <div id="playBtn" class="border border-white rounded-xl px-3 py-2 text-white font-bold cursor-pointer hover:bg-white hover:text-blue-800 text-center w-24 h-12 mx-auto mt-4">
+            <!-- <div id="playBtn" class="border border-white rounded-xl px-3 py-2 text-white hover:text-blue-800 font-bold cursor-pointer hover:bg-white text-center w-24 h-12 mx-auto mt-4">
+                Jugar
+            </div> -->
+            <div id="playBtn" class="border border-white rounded-xl px-3 py-2 font-bold cursor-pointer w-24 h-12 mx-auto mt-4 hover:bg-white hover:text-blue-800 text-center">
                 Jugar
             </div>
         </div>
     </div>
     <div id="cachipun" class="hidden container bg-white flex flex-col mx-auto py-3 mt-8 justify-between border border-white rounded-xl" style="max-width: 600px;">
         <h2 class="mx-auto font-bold text-4xl text-blue-800" id="turnos">Juega</h2>
-        <div class="mx-auto flex w-full justify-around pt-5">
-            <div id="tijera" class="border-8 border-yellow-600 bg-blue-800 text-white rounded-full h-32 w-32 text-5xl flex hover:bg-white hover:text-blue-800" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="mx-auto flex w-full justify-around pt-5 text-white">
+            <div id="tijera" class="border-8 border-yellow-600 bg-blue-800 rounded-full h-32 w-32 text-5xl flex hover:bg-white hover:text-blue-800" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="far fa-hand-scissors mx-auto my-auto"></i>
             </div>
             <h2 class="hidden">Usuario <span>/</span> PC</h2>
-            <div id="piedra" class="border-8 border-green-600 bg-blue-800 text-white rounded-full h-32 w-32 text-5xl flex hover:bg-white hover:text-blue-800" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div id="piedra" class="border-8 border-green-600 bg-blue-800 rounded-full h-32 w-32 text-5xl flex hover:bg-white hover:text-blue-800" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="far fa-hand-rock mx-auto my-auto"></i>
             </div>
-            <div id="papel" class="border-8 border-red-600 bg-blue-800 text-white rounded-full h-32 w-32 text-5xl flex hover:bg-white hover:text-blue-800" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div id="papel" class="border-8 border-red-600 bg-blue-800 rounded-full h-32 w-32 text-5xl flex hover:bg-white hover:text-blue-800" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="far fa-hand-paper mx-auto my-auto"></i>
             </div>
         </div>    
@@ -73,10 +76,10 @@ background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+
         </div>
         <div class="modal-body">
           <div class="row flex">
-              <div id="miJugada" class="col-4">
+              <div id="miJugada" class="col-4 text-white">
               </div>
               <div class="col-4 text-center my-auto mx-auto text-blue-800 font-bold text-3xl">__</div>
-              <div id="pcJugada" class="col-4">
+              <div id="pcJugada" class="col-4 text-white">
               </div>
           </div>
           <div class="row">
